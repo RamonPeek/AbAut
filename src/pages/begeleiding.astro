@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import ContactBanner from '../components/ContactBanner.astro';
+import Icon from '../components/Icon.astro';
+import { services, approach } from '../data/content';
+---
+<Base title="Begeleiding" description="Begeleiding bij autisme rond wonen, werken, school, vrije tijd en relaties. Vanuit vertrouwen kijken we samen wat bij jou past.">
+  <PageIntro eyebrow="Begeleiding bij autisme" title="Vanuit wie jij bent." description="Samen kijken we waar jij en je omgeving tegenaan lopen. En wat je nodig hebt om tot je recht te komen."/>
+  <section class="container content-split"><h2>Eerst begrijpen.<br/><em>Dan verder kijken.</em></h2><div class="prose"><p>AbAut biedt begeleiding bij autisme rond wonen, werken, school, vrije tijd en relaties. Vanuit wie je bent, kijken we naar wat wel werkt en wat niet.</p><p>Mijn uitgangspunt is vertrouwen. Ik geloof dat je iets hier, nu, op deze manier echt niet kunt. Ook als je enorm intelligent bent. En ik schrijf geen enkele droom bij voorbaat af.</p><p>Er kan een groot verschil zijn tussen de topprestatie die je op het ene moment levert en het schijnbare kleinigheidje dat je in een andere situatie helemaal laat blokkeren. In een passende omgeving is veel meer mogelijk dan je verwacht.</p></div></section>
+  <section class="section container"><span class="eyebrow">De begeleiding</span><h2>Wat speelt er <em>bij jou?</em></h2><div class="service-detail-list">{services.map(service => <article id={service.id}><span class="detail-icon"><Icon name={service.icon} size={32}/></span><h3>{service.title}</h3><p>{service.description}</p><span class="detail-number">{service.number}</span></article>)}</div></section>
+  <section class="section container"><span class="eyebrow">Onze aanpak</span><h2>Ruimte om <em>te groeien.</em></h2><div class="steps-grid">{approach.map(step => <article><span class="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></section>
+  <ContactBanner/>
+</Base>

@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import ContactBanner from '../components/ContactBanner.astro';
+import { services, approach } from '../data/content';
+import { site } from '../data/site';
+---
+<Base>
+  <section class="hero container">
+    <div class="hero-copy"><span class="eyebrow"><span class="small-dot"></span>Persoonlijke begeleiding bij autisme</span><h1>Meer rust.<br/>Meer ruimte.<br/><em>Meer jezelf.</em></h1><p>Je hoeft niet in een plaatje te passen. Samen kijken we wat jij nodig hebt om tot je recht te komen.</p><div class="hero-actions"><a href="/contact/" class="button">Laten we kennismaken <Icon/></a><a href="/begeleiding/" class="text-link">Ontdek de begeleiding <Icon size={18}/></a></div><div class="hero-note"><span class="note-line"></span>Vanuit vertrouwen. Op jouw manier.</div></div>
+    <div class="hero-art" role="img" aria-label="Illustratie: ruimte voor wie jij bent, met jouw mogelijkheden, wensen en dagelijks leven.">
+      <svg class="orbit-art" viewBox="0 0 540 550" fill="none" aria-hidden="true">
+        <path d="M272 35C388 10 513 91 511 222c-2 120-44 146-52 231-8 81-119 100-214 61C133 469 32 459 29 326 26 207 129 66 272 35Z" fill="#e9e2ef"/>
+        <ellipse cx="275" cy="276" rx="191" ry="141" transform="rotate(-34 275 276)" stroke="#aa96c5" stroke-width="1.4"/>
+        <ellipse cx="275" cy="276" rx="191" ry="141" transform="rotate(34 275 276)" stroke="#aa96c5" stroke-width="1.4"/>
+        <ellipse cx="275" cy="276" rx="145" ry="197" stroke="#aa96c5" stroke-width="1.4"/>
+        <circle cx="275" cy="276" r="93" fill="#957db9"/>
+        <circle cx="275" cy="276" r="108" stroke="#fff" stroke-opacity=".7"/>
+        <path d="M411 79v24M399 91h24M442 410v16M434 418h16" stroke="#6a4d89" stroke-width="1.5"/>
+        <circle cx="97" cy="346" r="5" fill="#050d41"/><circle cx="372" cy="451" r="4" fill="#957db9"/>
+      </svg>
+      <span class="art-center">Jij<span>het vertrekpunt</span></span>
+      <span class="orbit-label label-can">wat je kan</span><span class="orbit-label label-want">wat je wil</span><span class="orbit-label label-do">wat je doet</span><span class="orbit-label label-must">wat je moet</span>
+      <span class="art-caption">Alle ruimte voor jouw eigen verhaal.</span>
+    </div>
+  </section>
+  <div class="intro-strip"><div class="container"><span>Niet iedereen heeft hetzelfde nodig.</span><span>Daar begint mijn begeleiding. <span aria-hidden="true">↗</span></span></div></div>
+  <section class="section container services-section" aria-labelledby="services-heading"><div class="section-heading"><div><span class="eyebrow">Waar kan ik je bij helpen?</span><h2 id="services-heading">Het leven, op <em>jouw manier.</em></h2></div><p>Autisme raakt verschillende kanten van je leven.<br/>We kijken samen naar wat voor jou belangrijk is.</p></div><div class="services-grid">{services.map(service => <a class="service-card" href={`/begeleiding/#${service.id}`}><div class="service-card-top"><Icon name={service.icon} size={30}/><span>{service.number}</span></div><h3>{service.title}</h3><p>{service.description}</p><span class="card-arrow"><Icon size={21}/></span></a>)}</div></section>
+  <section class="about-section container" aria-labelledby="about-heading"><div class="quote-art"><span class="eyebrow">Mijn uitgangspunt</span><span class="quote-mark" aria-hidden="true">“</span><blockquote>Ik schrijf geen<br/>enkele droom<br/><em>bij voorbaat af.</em></blockquote><span class="quote-author">Bianca Ebeling · AbAut</span><svg viewBox="0 0 160 160" fill="none" aria-hidden="true"><circle cx="80" cy="80" r="70" stroke="currentColor"/><ellipse cx="80" cy="80" rx="45" ry="70" stroke="currentColor" transform="rotate(40 80 80)"/></svg></div><div class="about-copy"><span class="eyebrow">Even voorstellen</span><h2 id="about-heading">Hoi, ik ben Bianca.</h2><p>Autisme is in mijn leven overal aanwezig. In mijn familie, mijn vriendenkring en in mijn werk.</p><p>Als autismespecialist kijk ik verder dan wat aan de buitenkant zichtbaar is. Naar wie jij bent, wat je omgeving van je vraagt en wat jij nodig hebt. Mijn uitgangspunt is vertrouwen.</p><a class="text-link" href="/over-mij/">Meer over mij en mijn achtergrond <Icon size={20}/></a><div class="qualification"><span class="small-dot"></span>Master SEN Autisme · afgerond in 2010</div></div></section>
+  <section class="section container approach-section" aria-labelledby="approach-heading"><div class="section-heading"><div><span class="eyebrow">Zo kijken we samen</span><h2 id="approach-heading">Kleine stappen.<br/><em>Een eigen richting.</em></h2></div><a class="text-link" href="/begeleiding/">Mijn manier van begeleiden <Icon size={20}/></a></div><div class="steps-grid">{approach.map(step => <article><span class="step-number">{step.number}</span><h3>{step.title}</h3><p>{step.text}</p></article>)}</div></section>
+  <section class="quiet-quote container"><span class="eyebrow">Herken je dit?</span><p>{site.quote}</p><span class="small-dot"></span></section>
+  <ContactBanner/>
+</Base>

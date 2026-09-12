@@ -1,0 +1,9 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { site } from '../data/site';
+---
+<Base title="Privacy op deze website">
+  <PageIntro eyebrow="Privacy" title="Een rustige website. Ook achter de schermen." description="Deze website heeft geen contactformulier, trackingcookies of analytische scripts."/>
+  <section class="container prose legal-content"><h2>Bezoeken van de website</h2><p>Je kunt deze website bekijken zonder een account aan te maken of gegevens in een formulier in te vullen. Lettertypen en het logo worden vanuit de website zelf geladen.</p><h2>Contact via e-mail</h2><p>De e-maillink opent je eigen e-mailprogramma. Je bericht wordt pas verstuurd wanneer je dat zelf doet. Heb je een vraag over privacy of over gegevens die je met AbAut deelt? Mail dan naar <a href={`mailto:${site.email}`}>{site.email}</a>.</p><h2>Externe websites</h2><p>Op deze website staan links naar andere websites, waaronder LinkedIn en Facebook. Wanneer je die bezoekt, geldt het privacybeleid van die website.</p></section>
+</Base>

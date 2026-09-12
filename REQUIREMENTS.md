@@ -1,6 +1,6 @@
 # AbAut website requirements
 
-Status: initial draft for discussion. No application has been scaffolded yet.
+Status: first implementation built from this draft following authorization to start development. Publication and CMS selection remain pending.
 
 ## Confirmed requirements
 
@@ -84,4 +84,4 @@ Astro content collections support structured local content and custom loaders fo
 6. Existing hosting constraints and preferred deployment process.
 7. Future CMS editing needs: editors, image uploads, draft previews, publishing workflow, hosting, and budget.
 
-Next step: agree on scope and content, then prepare a visual direction before application development.
+Implemented first-release defaults: separate homepage plus the existing content areas, Dutch only, email contact, static hosting output, and typed local content. Next step: review the website and copy, agree on hosting, and define CMS editing needs.
