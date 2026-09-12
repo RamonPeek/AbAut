@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Astro generated files and build output
+.astro/
+dist/
+
+# Local environment variables; keep a safe example in Git
+.env
+.env.*
+!.env.example
+
+# Logs and caches
+*.log
+.cache/
+.npm/
+*.tsbuildinfo
+
+# Test and browser tooling output
+coverage/
+playwright-report/
+test-results/
+
+# OS and editor temporary files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Keep package manifests, the chosen package-manager lockfile,
+# source assets, and shared editor settings in Git.
