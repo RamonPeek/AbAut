@@ -71,13 +71,6 @@ export interface Resource {
 }
 export const resources: Resource[] = [
   {
-    title: "Over de IBVA",
-    description:
-      "Informatie over de beroepsvereniging voor autismespecialisten.",
-    href: "https://www.ibva.info/",
-    category: "Beroepsvereniging",
-  },
-  {
     title: "Uitleg over de diagnose",
     description: "Een document met uitleg over de diagnose autisme.",
     href: "/files/diagnose-autisme.pdf",
@@ -129,6 +122,20 @@ export const resources: Resource[] = [
     title: "Klachtenregeling",
     description: "Informatie over de klachtenregeling via ZZP-er in de zorg.",
     href: "https://www.zzp-erindezorg.nl/klachtenregeling",
+    category: "Praktische informatie",
+  },
+  {
+    title: "Over de IBVA",
+    description:
+      "Informatie over de beroepsvereniging voor autismespecialisten.",
+    href: "https://www.ibva.info/",
+    category: "Beroepsvereniging",
+  },
+  {
+    title: "Wegwijzer Autisme",
+    description:
+      "Een overzicht van producten en diensten voor mensen met autisme en hun naasten. Zoek naar passend aanbod in jouw omgeving.",
+    href: "https://www.wegwijzer-autisme.nl/",
     category: "Praktische informatie",
   },
 ];

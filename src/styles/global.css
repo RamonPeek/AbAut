@@ -272,7 +272,7 @@ em {
   background: #fff;
   padding: 10px 20px;
   border-radius: 30px;
-  font-size: 13px;
+  font-size: 12pt;
   box-shadow: 0 6px 24px #050d4108;
   border: 1px solid #efebf2;
 }
@@ -921,7 +921,7 @@ em {
     align-self: center;
   }
   .orbit-label {
-    font-size: 10px;
+    font-size: 12pt;
     padding: 7px 12px;
   }
   .art-center {
@@ -1135,7 +1135,7 @@ em {
     font-size: 8px;
   }
   .orbit-label {
-    font-size: 11px;
+    font-size: 12pt;
     padding: 8px 15px;
   }
   .art-caption {
