@@ -125,6 +125,13 @@ export const resources: Resource[] = [
     category: "Praktische informatie",
   },
   {
+    title: "Oekraïense kinderen met autisme",
+    description:
+      "Praktische informatie voor vrijwilligers over begeleiding, zorg en onderwijs voor Oekraïense kinderen met autisme. Door Bianca Ebeling en Eline Elshof (2022).",
+    href: "/files/oekraiense-kinderen-autisme-vrijwilligers.pdf",
+    category: "PDF · Praktische gids",
+  },
+  {
     title: "Over de IBVA",
     description:
       "Informatie over de beroepsvereniging voor autismespecialisten.",
