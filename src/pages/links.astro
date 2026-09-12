@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../data/urls";
 import Base from '../layouts/Base.astro';
 import PageIntro from '../components/PageIntro.astro';
 import ContactBanner from '../components/ContactBanner.astro';
@@ -7,6 +8,6 @@ import { resources } from '../data/content';
 ---
 <Base title="Links & informatie" description="Handige informatie over autisme, de IBVA, de klachtenregeling en de masterthesis van Bianca Ebeling.">
   <PageIntro eyebrow="Om verder te lezen" title="Informatie die helpt." description="Een paar plekken om verder te kijken. Van achtergrondinformatie tot onderzoek en praktische documenten."/>
-  <section class="container resources-grid" aria-label="Informatie en documenten">{resources.map(resource => <a class="resource-card" href={resource.href}><span class="eyebrow">{resource.category}</span><h2>{resource.title}</h2><p>{resource.description}</p><span class="resource-link">{resource.href.endsWith('.pdf') ? 'Bekijk het document' : resource.href.startsWith('mailto:') ? 'Vraag meer informatie' : 'Lees meer'}<Icon name="external" size={22}/></span></a>)}</section>
+  <section class="container resources-grid" aria-label="Informatie en documenten">{resources.map(resource => <a class="resource-card" href={withBase(resource.href)}><span class="eyebrow">{resource.category}</span><h2>{resource.title}</h2><p>{resource.description}</p><span class="resource-link">{resource.href.endsWith('.pdf') ? 'Bekijk het document' : resource.href.startsWith('mailto:') ? 'Vraag meer informatie' : 'Lees meer'}<Icon name="external" size={22}/></span></a>)}</section>
   <ContactBanner/>
 </Base>

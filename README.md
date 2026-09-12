@@ -34,7 +34,16 @@ The first release uses typed local data. A CMS is not installed yet. A next step
 
 ## Deployment
 
-Run `npm ci`, `npm run check`, and `npm run build`, then publish `dist/` to a static host. No server adapter is required. The site URL in `astro.config.mjs`, `src/data/site.ts`, and `public/robots.txt` is `https://abaut.nl`. Unknown routes should serve `dist/404.html` with a 404 status.
+GitHub Pages deployment is configured in `.github/workflows/deploy.yml`. Every push to `main` installs dependencies, checks the project, builds it, and deploys it. You can also run the workflow manually from GitHub's Actions tab. No server adapter is required.
+
+To activate the demo deployment:
+
+1. In the `RamonPeek/AbAut` repository, open **Settings → Pages** and select **GitHub Actions** as the source.
+2. Leave **Custom domain** empty (remove `abaut.nl` if previously entered). No DNS changes are needed.
+3. Commit and push these changes to `main`, then check the Actions tab for a successful deployment.
+4. Share **https://ramonpeek.github.io/AbAut/** with the client.
+
+The demo uses `site: "https://ramonpeek.github.io"` and `base: "/AbAut"` in `astro.config.mjs`. Local links and public asset paths use `src/data/urls.ts` to include that base. The existing `abaut.nl` website and contact email are unaffected.
 
 Known routes from the old hash-based website redirect to their new pages through a small compatibility script. The old placeholder reimbursement page has not been migrated.
 

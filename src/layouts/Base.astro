@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../data/urls";
 import '@fontsource-variable/dm-sans';
 import '../styles/global.css';
 import { site } from '../data/site';
@@ -6,8 +7,8 @@ import logo from '../../brand/abaut-logo-original.png';
 import Icon from '../components/Icon.astro';
 interface Props { title?: string; description?: string; noindex?: boolean }
 const { title, description = site.description, noindex = false } = Astro.props;
-const path = Astro.url.pathname;
-const canonical = new URL(path, site.url);
+const path = Astro.url.pathname.slice(import.meta.env.BASE_URL.replace(/\/$/, "").length) || "/";
+const canonical = new URL(withBase(path), site.url);
 ---
 <!doctype html>
 <html lang="nl">
@@ -17,35 +18,36 @@ const canonical = new URL(path, site.url);
     <meta name="description" content={description}/><link rel="canonical" href={canonical}/>
     {noindex && <meta name="robots" content="noindex"/>}
     <meta name="theme-color" content="#957db9"/>
-    <link rel="icon" type="image/png" href="/favicon.png"/>
-    <link rel="sitemap" href="/sitemap-index.xml"/>
+    <link rel="icon" type="image/png" href={withBase("/favicon.png")} />
+    <link rel="sitemap" href={withBase("/sitemap-index.xml")} />
     <meta property="og:type" content="website"/><meta property="og:locale" content="nl_NL"/>
     <meta property="og:site_name" content="AbAut"/><meta property="og:title" content={title ? `${title} | AbAut` : 'AbAut · Begeleiding bij autisme'}/>
     <meta property="og:description" content={description}/><meta property="og:url" content={canonical}/>
-    <meta property="og:image" content={new URL('/social-card.png', site.url)}/>
+    <meta property="og:image" content={new URL(withBase('/social-card.png'), site.url)}/>
     <meta name="twitter:card" content="summary_large_image"/>
   </head>
   <body>
     <a class="skip-link" href="#main">Ga naar de inhoud</a>
     <header class="site-header container">
-      <a class="brand" href="/" aria-label="AbAut — naar de homepage"><img src={logo.src} width="450" height="118" alt="AbAut"/><span>begeleiding bij autisme</span></a>
-      <nav aria-label="Hoofdnavigatie" class="desktop-nav">{site.navigation.map(item => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}<a class="nav-contact" href="/contact/" aria-current={path === '/contact/' ? 'page' : undefined}>Kennismaken <Icon size={18}/></a></nav>
-      <details class="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobiele navigatie">{site.navigation.map(item => <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}<a href="/contact/" aria-current={path === '/contact/' ? 'page' : undefined}>Kennismaken</a></nav></details>
+      <a class="brand" href={withBase("/")} aria-label="AbAut — naar de homepage"><img src={logo.src} width="450" height="118" alt="AbAut"/><span>begeleiding bij autisme</span></a>
+      <nav aria-label="Hoofdnavigatie" class="desktop-nav">{site.navigation.map(item => <a href={withBase(item.href)} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}<a class="nav-contact" href={withBase("/contact/")} aria-current={path === '/contact/' ? 'page' : undefined}>Kennismaken <Icon size={18}/></a></nav>
+      <details class="mobile-menu"><summary>Menu <span aria-hidden="true">☰</span></summary><nav aria-label="Mobiele navigatie">{site.navigation.map(item => <a href={withBase(item.href)} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>)}<a href={withBase("/contact/")} aria-current={path === '/contact/' ? 'page' : undefined}>Kennismaken</a></nav></details>
     </header>
     <main id="main"><slot/></main>
     <footer class="site-footer container">
-      <div class="footer-top"><div><a href="/" class="footer-brand">AbAut<span class="small-dot"></span></a><p>Begeleiding bij autisme.<br/>Vanuit wie jij bent.</p></div><div class="footer-links"><span class="eyebrow">Ontdek AbAut</span>{site.navigation.map(item => <a href={item.href}>{item.label}</a>)}<a href="/contact/">Contact</a></div><div class="footer-links"><span class="eyebrow">Laten we praten</span><a href={`mailto:${site.email}`}>{site.email} <Icon size={16}/></a>{site.social.map(item => <a href={item.href}>{item.label} <Icon name="external" size={16}/></a>)}</div></div>
-      <div class="footer-bottom"><span>© {new Date().getFullYear()} AbAut · Bianca Ebeling</span><a href="/privacy/">Privacy</a><span>Ruimte om jezelf te zijn.</span></div>
+      <div class="footer-top"><div><a href={withBase("/")} class="footer-brand">AbAut<span class="small-dot"></span></a><p>Begeleiding bij autisme.<br/>Vanuit wie jij bent.</p></div><div class="footer-links"><span class="eyebrow">Ontdek AbAut</span>{site.navigation.map(item => <a href={withBase(item.href)}>{item.label}</a>)}<a href={withBase("/contact/")} >Contact</a></div><div class="footer-links"><span class="eyebrow">Laten we praten</span><a href={`mailto:${site.email}`}>{site.email} <Icon size={16}/></a>{site.social.map(item => <a href={withBase(item.href)}>{item.label} <Icon name="external" size={16}/></a>)}</div></div>
+      <div class="footer-bottom"><span>© {new Date().getFullYear()} AbAut · Bianca Ebeling</span><a href={withBase("/privacy/")} >Privacy</a><span>Ruimte om jezelf te zijn.</span></div>
     </footer>
     <script>
       // Preserve links to the previous site's hash-based routes.
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       const legacyRoutes: Record<string, string> = { '/': '/', '/contact': '/contact/', '/begeleiding': '/begeleiding/', '/links': '/links/', '/about': '/over-mij/' };
-      if (window.location.pathname === '/' && window.location.hash.startsWith('#/')) {
+      if (window.location.pathname === base + '/' && window.location.hash.startsWith('#/')) {
         const legacy = window.location.hash.slice(1).replace(/\/$/, '') || '/';
         const target = legacyRoutes[legacy];
         if (target) {
-          if (target === '/') window.history.replaceState(null, '', '/' + window.location.search);
-          else window.location.replace(target + window.location.search);
+          if (target === '/') window.history.replaceState(null, '', base + '/' + window.location.search);
+          else window.location.replace(base + target + window.location.search);
         }
       }
     </script>

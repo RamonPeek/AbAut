@@ -1,6 +1,6 @@
 export const site = {
   name: "AbAut",
-  url: "https://abaut.nl",
+  url: "https://ramonpeek.github.io/AbAut/",
   email: "bianca@abaut.nl",
   specialist: "Bianca Ebeling",
   description:
