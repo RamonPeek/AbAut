@@ -215,6 +215,13 @@ em {
   color: var(--muted);
   line-height: 1.75;
 }
+.hero-copy > .hero-subtitle {
+  font-size: clamp(20px, 2vw, 24px);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
 .hero-actions {
   display: flex;
   align-items: center;
