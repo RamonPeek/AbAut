@@ -86,9 +86,44 @@ export const resources: Resource[] = [
   {
     title: "Moet ik het even voor je uittekenen?",
     description:
-      "Meer weten over mijn masterthesis voor de Master SEN Autismespecialist? Neem gerust contact op.",
-    href: "mailto:bianca@abaut.nl?subject=Vraag%20over%20je%20masterthesis",
+      "Mijn masterthesis over de rol van verbeelding in het wederzijds begrip tussen mensen met autisme en hun belangrijke anderen.",
+    href: "/files/uittekenen.pdf",
     category: "Onderzoek",
+  },
+  {
+    title: "Als anderen autisme vermoeden",
+    description:
+      "Een brief voor mensen bij wie anderen autisme vermoeden, met vragen en uitleg over diagnostisch onderzoek.",
+    href: "/files/brief-verdenking-autisme.pdf",
+    category: "PDF · Document",
+  },
+  {
+    title: "Brief voor grootouders",
+    description:
+      "Een brief over begrip en steun voor grootouders van een kleinkind met autisme.",
+    href: "/files/brief-voor-grootouders.pdf",
+    category: "PDF · Document",
+  },
+  {
+    title: "Steun voor partners en hun naasten",
+    description:
+      "Een brief voor familie en vrienden van iemand met een partner die mogelijk autisme heeft. Over begrip en steun voor het gezin.",
+    href: "/files/brief-voor-naasten-van-partners.pdf",
+    category: "PDF · Document",
+  },
+  {
+    title: "Autisme? Dat heeft toch iedereen…",
+    description:
+      "Een artikel over herkenbare kenmerken van autisme en de invloed van de omgeving op het dagelijks leven.",
+    href: "/files/iedereen-autisme.pdf",
+    category: "PDF · Document",
+  },
+  {
+    title: "Autisme en zintuigen",
+    description:
+      "Uitleg over overgevoeligheid, ondergevoeligheid en wisselende gevoeligheid voor zintuiglijke prikkels.",
+    href: "/files/autisme-en-zintuigen.pdf",
+    category: "PDF · Document",
   },
   {
     title: "Klachtenregeling",
